@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
-* _printf - Custom printf function with support for %s, %c, and %% formats.
-* @format: The format string.
-*
-* Return: The number of characters printed (excluding null byte).
-*/
+ * _printf - Custom printf function with support for %s, %c, and %% formats.
+ * @format: The format string.
+ *
+ * Return: The number of characters printed (excluding null byte).
+ */
 int _printf(const char *format, ...)
 {
 	int print_c = 0;
@@ -68,3 +68,4 @@ int _printf(const char *format, ...)
 
 	return (print_c);
 }
+
