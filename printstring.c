@@ -1,7 +1,9 @@
 #ifndef PRINTSTRING_H
 #define PRINTSTRING_H
 
-#include <main.h>
+#include "main.h"
+#include <string.h>
+#include <unistd.h>
 
 /**
 * print_string - Print a string.
