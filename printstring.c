@@ -1,6 +1,3 @@
-#ifndef PRINTSTRING_H
-#define PRINTSTRING_H
-
 #include "main.h"
 #include <string.h>
 #include <unistd.h>
@@ -22,5 +19,3 @@ int print_string(const char *str)
 	}
 	return (len);
 }
-
-#endif /* PRINTSTRING_H */
