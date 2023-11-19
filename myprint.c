@@ -1,3 +1,11 @@
+#include "main.h"
+
+/**
+* _printf - Custom printf function with support for %s, %c, and %% formats.
+* @format: The format string.
+*
+* Return: The number of characters printed (excluding null byte).
+*/
 int _printf(const char *format, ...)
 {
 	int print_c = 0;
@@ -14,8 +22,18 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			switch (*format)
+			if (*format == '\0')
+				break;
+
+			if (*format == '%')
 			{
+				write(1, format, 1);
+				print_c++;
+			}
+			else
+			{
+				switch (*format)
+				{
 				case 's':
 				{
 					const char *str = va_arg(args, const char *);
@@ -23,12 +41,6 @@ int _printf(const char *format, ...)
 					{
 						write(1, str, strlen(str));
 						print_c += strlen(str);
-					}
-					else
-					{
-						const char *null_str = "(null)";
-						write(1, null_str, strlen(null_str));
-						print_c += strlen(null_str);
 					}
 					break;
 				}
@@ -39,29 +51,12 @@ int _printf(const char *format, ...)
 					print_c++;
 					break;
 				}
-				case 'd':
-				{
-					int num = va_arg(args, int);
-					char num_str[100];
-					int len = 0;
-					while (num != 0)
-					{
-						num_str[len++] = '0' + num % 10;
-						num /= 10;
-					}
-
-					while (len > 0)
-					{
-						write(1, &num_str[--len], 1);
-						print_c++;
-					}
-					break;
-				}
 				default:
 				{
 					write(1, format - 1, 2);
 					print_c += 2;
 					break;
+				}
 				}
 			}
 		}
@@ -71,5 +66,5 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return print_c;
+	return (print_c);
 }
