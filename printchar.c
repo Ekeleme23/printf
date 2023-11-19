@@ -1,6 +1,3 @@
-#ifndef PRINTCHAR_H
-#define PRINTCHAR_H
-
 #include"main.h"
 #include <unistd.h>
 
@@ -15,4 +12,3 @@ int print_char(char ch)
 	write(1, &ch, 1);
 	return (1);
 }
-#endif /* PRINTCHAR_H */
